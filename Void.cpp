@@ -119,7 +119,7 @@ private:
 };
 
 int main() {
-    //mock commit by ashish pathak
+    
     Train train(72); 
 
     vector<string> stations = {"Jabalpur", "Damoh", "Sagar", "Bhopal", "Indore"};
