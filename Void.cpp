@@ -142,10 +142,10 @@ int main() {
             break; // Exit the loop if 0 is entered as the source station
         }
 
-        // if (sourceIndex < 1 || sourceIndex > stations.size()) {
-        //     cout << "Invalid source station index. Please enter a valid index." << endl;
-        //     continue; // Go back to the beginning of the loop
-        // }
+         if (sourceIndex < 1 || sourceIndex > stations.size()) {
+             cout << "Invalid source station index. Please enter a valid index." << endl;
+             continue; // Go back to the beginning of the loop
+         }
 
         cout << "Enter destination station (1-" << stations.size() << "): ";
         cin >> destinationIndex;
