@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Seat will be an object taking the seat number as parameter while allocation. It contains 3 member functions that will update and maintain the seat status.
 class Seat {
 public:
     Seat(int seatNumber) : seatNumber(seatNumber), occupied(false) {}
@@ -31,6 +32,7 @@ private:
     bool occupied;
 };
 
+//The class Train will be an object containing vector of seats and other seat allocation and vacating functions.
 class Train {
 public:
     Train(int capacity) : capacity(capacity) {
