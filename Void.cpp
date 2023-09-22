@@ -135,7 +135,7 @@ int main() {
 
     while (true) {
         int sourceIndex, destinationIndex;
-        cout << "Enter source station (1-" << stations.size() << ") or 0 to exit: ";
+        //cout << "Enter source station (1-" << stations.size() << ") or 0 to exit: ";
         cin >> sourceIndex;
 
         if (sourceIndex == 0) {
@@ -144,12 +144,12 @@ int main() {
             break; // Exit the loop if 0 is entered as the source station
         }
 
-         if (sourceIndex < 1 || sourceIndex > stations.size()) {
-             cout << "Invalid source station index. Please enter a valid index." << endl;
-             continue; // Go back to the beginning of the loop
-         }
+         // if (sourceIndex < 1 || sourceIndex > stations.size()) {
+         //     cout << "Invalid source station index. Please enter a valid index." << endl;
+         //     continue; // Go back to the beginning of the loop
+         // }
 
-        cout << "Enter destination station (1-" << stations.size() << "): ";
+        //cout << "Enter destination station (1-" << stations.size() << "): ";
         cin >> destinationIndex;
 
         // if (destinationIndex < 1 || destinationIndex > stations.size()) {
@@ -162,7 +162,7 @@ int main() {
 
 
         int groupSize;
-        cout << "Enter your group size: ";
+        //cout << "Enter your group size: ";
         cin >> groupSize;
 
         vector<int> allocatedSeats;
