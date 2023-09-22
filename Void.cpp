@@ -124,7 +124,7 @@ int main() {
     
     Train train(72); 
 
-    vector<string> stations = {"Jabalpur", "Damoh", "Sagar", "Bhopal", "Indore"};
+    vector<string> stations = {"Jabalpur", "Delhi", "Lucknow", "Jaipur", "Bilaspur"};
     string source, destination;
     vector<string> previousDestinations; // Keep track of previous destinations
     vector<int> previousGroupsize; //Last entered groupsize k liye
@@ -139,7 +139,7 @@ int main() {
         cin >> sourceIndex;
 
         if (sourceIndex == 0) {
-            cout<<"Humhara Application use karne k liye dhanyawaad!"<<endl;
+            cout<<"Hamara Application use karne k liye dhanyawaad!"<<endl;
             cout<<"Team Void"<<endl;
             break; // Exit the loop if 0 is entered as the source station
         }
