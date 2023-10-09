@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Get the current directory
+CURRENT_DIR="$(pwd)"
+
+# Check if the current directory contains 'sussybaka/Void'
+if [[ "$CURRENT_DIR" == *"/sussybaka/Void"* ]]; then
+  # Set the build directory with an absolute path
+  BIN_DIR="/home/sussybaka/Void/bin"
+
+  # Change to the 'sussybaka/Void' directory
+  cd "$CURRENT_DIR"
+
+  # Run the compiled program if it exists
+  if [ -d "$BIN_DIR" ]; then
+    if [ -f "$BIN_DIR/my_program" ]; then
+      "$BIN_DIR/my_program"
+    else
+      echo "Executable '$BIN_DIR/my_program' not found. Please build the program first."
+      exit 1  # Return a non-zero exit status to indicate an error
+    fi
+  else
+    echo "Build directory '$BIN_DIR' not found. Please build the program first."
+    exit 1  # Return a non-zero exit status to indicate an error
+  fi
+else
+   echo "Command 'run' not found, did you mean:
+  Try: sudo apt install <deb name>
+  "
+  exit 1  # Return a non-zero exit status to indicate an error
+fi
