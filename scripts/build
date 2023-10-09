@@ -1,0 +1,38 @@
+#!/bin/bash
+
+USER = "$(whoami)"
+USER_HOME = "/home/$USER"
+# Get the current directory
+CURRENT_DIR="$(pwd)"
+
+# Check if the current directory contains 'sussybaka/Void'
+if [[ "$CURRENT_DIR" == *"$USER_HOME/Void"* ]]; then
+  # Set the source and build directories with absolute paths
+  SRC_DIR="$USER_HOME/Void/src"
+  BIN_DIR="$USER_HOME/Void/bin"
+
+  # Change to the 'sussybaka/Void' directory
+  cd "$CURRENT_DIR"
+
+  # Compile the C++ code
+  if [ -d "$SRC_DIR" ]; then
+    if [ ! -d "$BIN_DIR" ]; then
+      mkdir -p "$BIN_DIR"
+    fi
+    g++ "$SRC_DIR/main.cpp" -o "$BIN_DIR/my_program"
+    if [ $? -eq 0 ]; then
+      echo "Compilation successful. Executable created in '$BIN_DIR/my_program'."
+    else
+      echo "Compilation failed."
+      exit 1  # Return a non-zero exit status to indicate an error
+    fi
+  else
+    echo "Source directory '$SRC_DIR' not found."
+    exit 1  # Return a non-zero exit status to indicate an error
+  fi
+else
+   echo "Command 'build' not found, did you mean:
+  Try: sudo apt install <deb name>
+  "
+  exit 1  # Return a non-zero exit status to indicate an error
+fi
