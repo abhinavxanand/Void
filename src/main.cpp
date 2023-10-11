@@ -67,13 +67,14 @@ public:
 
     bool allocateSeats(int numOfSeats, vector<int>& allocatedSeats) {
         int contiguousEmptySeats = 0;
-        for (int i = 0; i < capacity; ++i) {
+        for (int i = (numOfSeats % 2 == 0) ? 0 : capacity - 1; (numOfSeats % 2 == 0) ? (i < capacity) : (i >= 0); (numOfSeats % 2 == 0) ? ++i : --i) {
             if (!seats[i].isOccupied()) {
                 contiguousEmptySeats++;
                 allocatedSeats.push_back(seats[i].getSeatNumber());
-                //allocatedSeats.push_back(i+1);
                 if (contiguousEmptySeats == numOfSeats) {
-                    // Allocate contiguous seats
+                    if (numOfSeats % 2 != 0) {
+                        reverse(allocatedSeats.begin(), allocatedSeats.end());
+                    }
                     for (int seatNumber : allocatedSeats) {
                         seats[seatNumber - 1].occupy();
                     }
@@ -84,7 +85,7 @@ public:
                 allocatedSeats.clear();
             }
         }
-        return false; // No contiguous seats available
+        return false;
     }
 
     void deallocateSeatsTill(int preSeats , int vacantSizeTill) {
